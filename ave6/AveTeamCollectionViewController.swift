@@ -42,7 +42,7 @@ class AveTeamCollectionViewController: UICollectionViewController {
         navigationItem.titleView = imageView
 
         queryAllAgents()
-        playVideo()
+//        playVideo()
 
 
     }
@@ -83,6 +83,24 @@ class AveTeamCollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
+        //1
+        switch kind {
+        //2
+        case UICollectionElementKindSectionHeader:
+            //3
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: "header",
+                                                                             for: indexPath) as! AgentCollectionHeaderReusableView
+            
+            return headerView
+        default:
+            //4
+            assert(false, "Unexpected element kind")
+        }
+    }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections

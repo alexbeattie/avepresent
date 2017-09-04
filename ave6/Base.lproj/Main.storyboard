@@ -32,15 +32,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="200" maxX="0.0" maxY="0.0"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="0fz-Q0-PyZ">
                             <size key="itemSize" width="200" height="200"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="424"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TeamCell" id="Gja-o8-3YU" customClass="AgentCollectionViewCell" customModule="ave6" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="87.5" y="424" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -87,6 +88,86 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="header" id="USt-rz-nQs" customClass="AgentCollectionHeaderReusableView" customModule="ave6" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="424"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3130" translatesAutoresizingMaskIntoConstraints="NO" id="2CA-hp-kgq">
+                                    <rect key="frame" x="0.0" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3129" translatesAutoresizingMaskIntoConstraints="NO" id="JzD-69-1Sp">
+                                    <rect key="frame" x="127" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3110" translatesAutoresizingMaskIntoConstraints="NO" id="XWj-Zg-kNb">
+                                    <rect key="frame" x="255" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3120" translatesAutoresizingMaskIntoConstraints="NO" id="6Zs-1P-QcO">
+                                    <rect key="frame" x="0.0" y="172" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3103" translatesAutoresizingMaskIntoConstraints="NO" id="BRz-4M-Ecm">
+                                    <rect key="frame" x="127" y="172" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="3111" translatesAutoresizingMaskIntoConstraints="NO" id="fvJ-AJ-oJu">
+                                    <rect key="frame" x="255" y="172" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="FOUNDING MEMBERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-bR-JvK">
+                                    <rect key="frame" x="38" y="8" width="299" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q5S-HK-PhL">
+                                    <rect key="frame" x="0.0" y="331" width="375" height="93"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BROKERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4eR-VY-opX">
+                                            <rect key="frame" x="90" y="35" width="194" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="16"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kww-X7-tMZ">
+                                    <rect key="frame" x="128" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="pYH-mG-RJ9" kind="show" id="w9O-Qn-qhn"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuJ-h2-ikD">
+                                    <rect key="frame" x="0.0" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="pYH-mG-RJ9" kind="show" id="FFb-Cx-855"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HqX-rJ-m9L">
+                                    <rect key="frame" x="128" y="172" width="119" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="d39-3b-lLt" kind="show" id="0On-MF-8qV"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNr-1g-Enc">
+                                    <rect key="frame" x="256" y="44" width="120" height="120"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <connections>
+                                        <segue destination="d39-3b-lLt" kind="show" id="pYi-hv-503"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.23921568630000001" green="0.76078431369999999" blue="0.81960784310000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="MBX-64-SXR" id="5Qj-Ax-EyA"/>
                             <outlet property="delegate" destination="MBX-64-SXR" id="eDv-fy-16m"/>
@@ -408,8 +489,7 @@
                     <navigationItem key="navigationItem" id="Tee-WN-uGP">
                         <barButtonItem key="leftBarButtonItem" image="icons8-home_page" id="sGI-pB-11z">
                             <connections>
-                                <action selector="goBackToOneButtonTapped:" destination="yfp-qm-VGl" id="FNh-SO-Nfl"/>
-                                <segue destination="vr1-dH-h5v" kind="unwind" unwindAction="unwindToVC1WithSegue:" id="E4D-Hz-F6o"/>
+                                <segue destination="MBX-64-SXR" kind="show" id="09b-sW-dTe"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -418,7 +498,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giU-OI-tOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="vr1-dH-h5v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1113" y="9"/>
         </scene>
@@ -778,7 +857,7 @@ We are a brokerage with the ability to adapt to market changes and trends, while
                                         <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" address="YES"/>
                                     </textView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LAl-GG-uIT">
-                                        <rect key="frame" x="8" y="472" width="359" height="91"/>
+                                        <rect key="frame" x="8" y="472" width="359" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aQY-Dr-WxV">
@@ -1109,6 +1188,12 @@ We are a brokerage with the ability to adapt to market changes and trends, while
         </scene>
     </scenes>
     <resources>
+        <image name="3103" width="160" height="160"/>
+        <image name="3110" width="160" height="160"/>
+        <image name="3111" width="160" height="160"/>
+        <image name="3120" width="160" height="160"/>
+        <image name="3129" width="160" height="160"/>
+        <image name="3130" width="160" height="160"/>
         <image name="TERE_MOYA_017-1" width="2800" height="2240"/>
         <image name="alllistingsmap" width="18" height="21"/>
         <image name="avenuelogo" width="20" height="20"/>
@@ -1126,7 +1211,10 @@ We are a brokerage with the ability to adapt to market changes and trends, while
         <image name="video-1" width="23" height="20"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="0On-MF-8qV"/>
+        <segue reference="w9O-Qn-qhn"/>
         <segue reference="4vn-DT-4Rg"/>
+        <segue reference="09b-sW-dTe"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
