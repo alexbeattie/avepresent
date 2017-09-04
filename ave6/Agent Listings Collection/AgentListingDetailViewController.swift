@@ -331,33 +331,33 @@ class AgentListingDetailViewController: UIViewController, MKMapViewDelegate, MFM
     }
     
     
-//    @IBAction func mailButt(sender: AnyObject) {
-//        //        let listingClass = PFObject(className: "Recipe")
-//        _ = sender as! UIBarButtonItem
-//
-//        let mailComposer = MFMailComposeViewController()
-//
-//
-//
-//        mailComposer.mailComposeDelegate = self
-//        mailComposer.setToRecipients(["artisanb@me.com"])
-//        mailComposer.setSubject("[iPhone App Contact] Interested in \(title!)")
-//        mailComposer.setMessageBody("Hello,<br>I saw <strong>\(propObj["name"]!)</strong> and would like some more information about this property<br>Thanks,<br>Regards", isHTML: true)
-//
-//        if MFMailComposeViewController.canSendMail() {
-//            present(mailComposer, animated: true, completion: nil)
-//        } else {
-//
-//            let alertController = UIAlertController(title: "Li Read Group", message: "Your device cannot send emails. Please configure an email address into Settings -> Mail, Contacts, Calendars.", preferredStyle: .alert)
-//            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-//            alertController.addAction(cancelAction)
-//
-//        }
-//    }
-//    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-//        controller.dismiss(animated: true, completion: nil)
-//    }
-//
+    @IBAction func mailButt(sender: AnyObject) {
+        //        let listingClass = PFObject(className: "Recipe")
+        _ = sender as! UIBarButtonItem
+
+        let mailComposer = MFMailComposeViewController()
+
+
+
+        mailComposer.mailComposeDelegate = self
+        mailComposer.setToRecipients(["artisanb@me.com"])
+        mailComposer.setSubject("[iPhone App Contact] Interested in \(title!)")
+        mailComposer.setMessageBody("Hello,<br>I saw <strong>\(propObj["name"]!)</strong> and would like some more information about this property<br>Thanks,<br>Regards", isHTML: true)
+
+        if MFMailComposeViewController.canSendMail() {
+            present(mailComposer, animated: true, completion: nil)
+        } else {
+
+            let alertController = UIAlertController(title: "Li Read Group", message: "Your device cannot send emails. Please configure an email address into Settings -> Mail, Contacts, Calendars.", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+            alertController.addAction(cancelAction)
+
+        }
+    }
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+    }
+
     
     @IBAction func gotToAllMap(_ sender: Any) {
         performSegue(withIdentifier: "toAllListingsMapVC", sender: self)

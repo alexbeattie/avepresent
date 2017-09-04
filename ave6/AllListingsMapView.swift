@@ -13,11 +13,11 @@ import CoreLocation
 
 class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate  {
 
-    var propObj = PFObject(className: PROP_CLASS_NAME)
+    var propObj = PFObject(className: "OfficeListings")
     var annotation:MKAnnotation!
     var pointAnnotation: MKPointAnnotation!
     var pinView:MKPinAnnotationView!
-    var listingClass = PFObject(className: "allListings")
+    var listingClass = PFObject(className: "OfficeListings")
     var addressItems = PFGeoPoint()
     var coords: CLLocationCoordinate2D?
     
@@ -39,7 +39,7 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-                navigationItem.title? = "ALL LISTINGS MAP"
+        navigationItem.title? = "Avenue Offices"
         
         
         
@@ -56,12 +56,12 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
-
+        navigationItem.title? = "Avenue Offices"
+//        self.title = "Avenue Offices"
 
         mapView.showsUserLocation = true
-        let initialLocation = CLLocationCoordinate2D(latitude: 48.331965, longitude: -122.323164)
-        let span = MKCoordinateSpan(latitudeDelta: 1.75, longitudeDelta: 1.75)
+        let initialLocation = CLLocationCoordinate2D(latitude: 47.613871, longitude: -122.32523)
+        let span = MKCoordinateSpan(latitudeDelta: 0.75, longitudeDelta: 0.75)
         let region = MKCoordinateRegion(center: initialLocation, span: span)
         mapView.setRegion(region, animated: true)
         
@@ -80,7 +80,7 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
 
     }
     func addAnnotations() {
-        let annotationQuery = PFQuery(className: PROP_CLASS_NAME)
+        let annotationQuery = PFQuery(className: "OfficeListings")
         let swOfSF = PFGeoPoint(latitude:46.623988, longitude:-123.485756)
         let neOfSF = PFGeoPoint(latitude:48.878275, longitude:-120.307961)
         annotationQuery.cachePolicy = .networkElseCache
@@ -95,15 +95,16 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
                 for mappedItem in mappedItems {
                     
                     let point = mappedItem["addressItems"] as! PFGeoPoint
-                    let theTitle = mappedItem["name"] as! String
-                    let subTitle = mappedItem["cost"] as! String
-                    //                    print(theTitle)
+                    let theTitle = mappedItem["addressName"] as! String
+                    let subTitle = mappedItem["addressActual"] as! String
+                    
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = CLLocationCoordinate2DMake(point.latitude, point.longitude)
                     
                     //                    print(annotation.coordinate)
                     annotation.title = theTitle
                     annotation.subtitle = subTitle
+                
                 
                     self.mapView.addAnnotation(annotation)
                     print(annotation.coordinate.latitude, annotation.coordinate.longitude)
@@ -120,14 +121,8 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
             return nil;
-        }else{
-            let pinIdent = "Pin";
-            var pinView: MKPinAnnotationView;
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdent) as? MKPinAnnotationView {
-                dequeuedView.annotation = annotation;
-                pinView = dequeuedView;
-            }else{
-                pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: pinIdent);
+        }
+                let pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Default");
 //                let annoView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "Default")
                 let swiftColor = #colorLiteral(red: 0.4352941215, green: 0.4431372583, blue: 0.4745098054, alpha: 1)
 
@@ -142,12 +137,26 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
                 rightButton.clipsToBounds = true
                 pinView.rightCalloutAccessoryView = rightButton
                 
+//                let leftIconView = UIImageView()
+//                leftIconView.contentMode = .scaleAspectFill
+//                if let thumbImage = propObj["imageFile"] as? PFFile {
+//                    thumbImage.getDataInBackground() { (imageData, error) -> Void in
+//                        if error == nil {
+//                            if let imageData = imageData {
+//                                leftIconView.image = UIImage(data:imageData)
+//
+//
+//                            }
+//                        }
+//                    }
+//                }
+//                let newBounds = CGRect(x:0.0, y:0.0, width:54.0, height:54.0)
+//                leftIconView.bounds = newBounds
+//                pinView.leftCalloutAccessoryView = leftIconView
+                return pinView
+
             }
-      
-        return pinView
-       
-        }
-    }
+   
     
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
     
@@ -168,7 +177,7 @@ class AllListingsMapView: UIViewController, MKMapViewDelegate, CLLocationManager
 
 //            mapItem.name = propObj["name"] as? String
             mapItem.name = view.annotation!.title!
-            print(mapItem.name)
+//            print(mapItem.name)
             let launchOptions = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
             
             

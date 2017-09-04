@@ -8,13 +8,16 @@
 
 import UIKit
 import Parse
-
+import AVKit
+import AudioToolbox
 
 class AveTeamCollectionViewController: UICollectionViewController {
 
     @IBOutlet var aveCollectionView: UICollectionView!
     var recentListings:[PFObject] = []
-
+    var player:AVPlayer!
+    var playerLayer:AVPlayerLayer!
+    @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var agentImage: UIImageView!
 
     
@@ -23,6 +26,9 @@ class AveTeamCollectionViewController: UICollectionViewController {
 //    
 //
 //    }
+    @IBAction func playVideo(_ sender: Any) {
+        playVideo()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -36,8 +42,29 @@ class AveTeamCollectionViewController: UICollectionViewController {
         navigationItem.titleView = imageView
 
         queryAllAgents()
+        playVideo()
 
 
+    }
+    func playVideo() {
+        
+        //        startActivityIndicator()
+        guard let path = Bundle.main.path(forResource: "avenue-properties", ofType:"mp4") else {
+            debugPrint("video.m4v not found")
+            return
+        }
+        let documentsFolder = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        let videoURL = documentsFolder.appendingPathComponent("avenue-properties.mp4")
+        
+        let player = AVPlayer(url: URL(fileURLWithPath: path))
+        let playerController = AVPlayerViewController()
+        playerController.player = player
+        
+        present(playerController, animated: true) {
+            player.play()
+            //        }
+        }
+        
     }
     @IBAction func refresh(_ sender: Any) {
         queryAllAgents()
